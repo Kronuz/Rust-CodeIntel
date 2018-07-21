@@ -174,7 +174,8 @@ class CodeIntelRustPlugin(LanguageHandler):
             return True
         if CodeIntelRustPlugin.dialogs and sublime.ok_cancel_dialog(
             "Rust {} toolchain not installed.\n"
-            "Install now?".format(self._config.channel)
+            "Install now?".format(self._config.channel),
+            ok_title="Yes"
         ):
             return self.try_to_install_toolchain()
         CodeIntelRustPlugin.dialogs = False
@@ -214,7 +215,8 @@ class CodeIntelRustPlugin(LanguageHandler):
             return True
         if CodeIntelRustPlugin.dialogs and sublime.ok_cancel_dialog(
             "Rust Language Server not installed\n"
-            "Install now?"
+            "Install now?",
+            ok_title="Yes"
         ):
             return self.install_rls()
         CodeIntelRustPlugin.dialogs = False
